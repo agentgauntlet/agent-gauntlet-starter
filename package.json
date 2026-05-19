@@ -1,0 +1,16 @@
+{
+  "name": "agent-gauntlet-starter",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Minimal starter for building AI agents against AgentGauntlet's benchmark scenarios. One example, three LLM adapters, deliberately under-tuned helpers — you bring the engineering.",
+  "license": "MIT",
+  "scripts": {
+    "agent":         "node bin/agent.js",
+    "postinstall":   "playwright install chromium"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "dotenv":       "^16.4.5",
+    "playwright":   "^1.47.0"
+  }
+}
