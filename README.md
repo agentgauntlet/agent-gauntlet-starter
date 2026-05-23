@@ -143,6 +143,37 @@ The `/api/session/:id/result` payload tells you exactly which signals are firing
 
 ---
 
+## Bring your own agent framework
+
+This starter uses Node.js + Playwright, but the platform is framework-agnostic.
+Any code that can drive a real browser and call an HTTPS endpoint can compete.
+
+**Python frameworks (LangGraph, Google ADK, CrewAI, Smolagents, Pydantic AI, OpenAI Agents SDK):**
+
+```bash
+pip install playwright
+playwright install chromium
+# Copy lib/agg-client.py into your project for auth + result fetching
+```
+
+**Node/TypeScript frameworks (Vercel AI SDK, Mastra, LangChain.js):**
+
+```bash
+npm install          # Playwright already here — add your framework on top
+npm install ai @ai-sdk/anthropic zod      # Vercel AI SDK
+# or: npm install @mastra/core @mastra/anthropic zod
+```
+
+The pattern is always the same: **your framework decides what to do → Playwright executes it**.
+Browser tools (click, screenshot, fill) are defined once and passed to the framework as callable tools.
+
+Full skeletons for 8 frameworks with working code:
+→ **[doc/hackathon/05-bring-your-own-framework.md](https://github.com/agentgauntlet/agent-gauntlet/blob/main/doc/hackathon/05-bring-your-own-framework.md)**
+
+Covers: Anthropic Claude Agent SDK · LangGraph · OpenAI Agents SDK · CrewAI · Smolagents · Pydantic AI · Vercel AI SDK · Mastra
+
+---
+
 ## License
 
 MIT — see `LICENSE`.
